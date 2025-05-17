@@ -83,9 +83,9 @@
 
     if($leaderboard->num_rows > 0) {
         $leaderboardHtml .= "
-        <table>
+        <table class='leaderboard'>
         <tr>
-        <th>Platzierung</th> <th>Username</th> <th>Dauer</th>
+        <th class='tableHeader'>Platzierung</th> <th class='tableHeader'>Username</th> <th class='tableHeader'>Dauer</th>
         </tr>
         ";
 
