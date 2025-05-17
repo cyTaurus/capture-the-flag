@@ -49,7 +49,8 @@
         VALUES('$username', CURRENT_TIME, NULL)";
 
         if($conn->query($sql) === TRUE) {
-            echo "Neuer Datensatz erfolgreich eingefügt<br>";
+            // Nach erfolgreichen Start User auf ziel.php weiterleiten
+            header("Location: ziel.php");
         } else {
             echo "Fehler beim Einfügen des Datensatzes." . $conn->error;
         }
@@ -102,7 +103,7 @@
         $leaderboardHtml .= "</table>";
 
     } else {
-        $leaderboardHtml .= "Noch keine Ergebnisser vorhanden";
+        $leaderboardHtml .= "Noch keine Ergebnisse vorhanden";
     }
     
     // Verbindung zu Datenbank schließen
