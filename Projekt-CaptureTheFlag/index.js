@@ -5,4 +5,4 @@ var reveal = function (target, message, index, interval) {
     $(target).append(message[index++]);
     setTimeout(function () { reveal(target, message, index, interval); }, interval);
   }
-}
+} 

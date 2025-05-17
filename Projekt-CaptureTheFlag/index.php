@@ -37,7 +37,7 @@ include 'databases/time.php';
     <!--h2>Test-Sektion</h2-->
     
     
-    <form method="post" action="challenges/challenge1.php">
+    <form method="post" action="">
         <input type="hidden" name="action" value="start">
 
         <label for="username">Username:</label>

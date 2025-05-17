@@ -50,7 +50,7 @@
 
         if($conn->query($sql) === TRUE) {
             // Nach erfolgreichen Start User auf ziel.php weiterleiten
-            header("Location: ziel.php");
+            header("Location: challenges/anagramms.php");
         } else {
             echo "Fehler beim Einfügen des Datensatzes." . $conn->error;
         }
