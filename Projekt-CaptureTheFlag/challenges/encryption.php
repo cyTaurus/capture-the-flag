@@ -66,7 +66,7 @@ function isAnswerCorrect() {
 
     <form method="post" action="">
         <label for="eingabeText">Eingabe Lösung:</label> <br>
-        <textarea id="eingabeText" name="eingabeText" rows="5" cols="50" placeholder="Hier den entschlüsselten Text eingeben"></textarea>
+        <textarea id="eingabeText" name="eingabeText" rows="5" cols="50" placeholder="Hier den entschlüsselten Text eingeben"><?php echo isset($_POST['eingabeText']) ? htmlspecialchars($_POST['eingabeText']) : ''; ?></textarea>
         <button type="submit">Lösung überprüfen</button>
     </form>
 
