@@ -12,12 +12,12 @@
         die("Verbindung fehlgeschlagen: ". $conn->connect_error); //Exit + Fehlermeldung
     }
     // zum Testen
-    echo "Verbindung erfolgreich<br>";
+    // echo "Verbindung erfolgreich<br>";
 
     //Datenbank erstellen
     $sql = "CREATE DATABASE IF NOT EXISTS ctf";
     if($conn->query($sql) === TRUE) {
-        echo "Datenbank wurde erfolgreich erstellt<br>";
+        // echo "Datenbank wurde erfolgreich erstellt<br>";
     } else {
         echo "Fehler beim Erstellen der Datenbank". $conn->error;
     }
@@ -35,7 +35,7 @@
     )";
     // Check, ob Tabelle richtig erstellt wurde
     if($conn->query($sql) === TRUE) {
-        echo "Tabelle: Zeiten wurde erfolgreich erstellt<br>";
+        // echo "Tabelle: Zeiten wurde erfolgreich erstellt<br>";
     } else {
         echo "Fehler beim Erstellen der Tabelle". $conn->error;
     }
@@ -49,7 +49,7 @@
         VALUES('$username', CURRENT_TIME, NULL)";
 
         if($conn->query($sql) === TRUE) {
-            // Nach erfolgreichen Start User auf ziel.php weiterleiten
+            // Nach erfolgreichen Start User auf anagramms.php weiterleiten
             header("Location: challenges/anagramms.php");
         } else {
             echo "Fehler beim Einfügen des Datensatzes." . $conn->error;
@@ -66,7 +66,7 @@
                         dauer = TIMESTAMPDIFF(SECOND, start_zeit, CURRENT_TIME)
                     WHERE username = '$username' AND end_zeit IS NULL";
             if($conn->query($sql) === TRUE) {
-                echo "Endzeitpunkt und Dauer erfolgreich gesetzt<br>";
+                // echo "Endzeitpunkt und Dauer erfolgreich gesetzt<br>";
             } else {
                 echo "Fehler beim Aktualisieren der Endzeit". $conn->error;
             }
@@ -79,7 +79,8 @@
     $leaderboardHtml = ""; // Variable für die Tabelle initialisieren, damit diese in index.php verwendet werden kann
     $sql = "SELECT username, SEC_TO_TIME(dauer) AS dauer
             FROM Zeiten
-            ORDER BY dauer ASC";
+            ORDER BY dauer ASC
+            LIMIT 10";
     $leaderboard = $conn->query($sql);
 
     if($leaderboard->num_rows > 0) {
