@@ -53,12 +53,16 @@ function isAnswerCorrect() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capture The Flag: Cäsar-Verschlüsselung</title>
+    <title>CTF: Cäsar-Verschlüsselung</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P"> 
+    <link rel="stylesheet" href="../assets/style/style.css?v=124"> 
+
 </head>
 <body>
+ <div class="ctf-container">
     <h1>Cäsar-Verschlüsselung</h1>
-    <p>Dir liegt folgender Text vor, welcher mit der Cäsar-Verschlüsselung codiert wurde</p>
-    <p>Den Schlüssel, den du verwenden sollst, ist: <strong>3</strong></p>
+    <p>Dir liegt folgender Text vor, welcher mit der Cäsar-Verschlüsselung codiert wurde.</p>
+    <p>Der Schlüssel, den du verwenden sollst, ist: <strong>3</strong></p>
 
     <p>
         <?php echo encrypt($text, $key);?>
@@ -66,13 +70,14 @@ function isAnswerCorrect() {
 
     <form method="post" action="">
         <label for="eingabeText">Eingabe Lösung:</label> <br>
-        <textarea id="eingabeText" name="eingabeText" rows="5" cols="50" placeholder="Hier den entschlüsselten Text eingeben"><?php echo isset($_POST['eingabeText']) ? htmlspecialchars($_POST['eingabeText']) : ''; ?></textarea>
-        <button type="submit">Lösung überprüfen</button>
+        <textarea id="eingabeText" name="eingabeText" rows="5" cols="50" placeholder="Hier den entschlüsselten Text eingeben"><?php echo isset($_POST['eingabeText']) ? htmlspecialchars($_POST['eingabeText']) : ''; ?></textarea><br>
+        <button type="submit" class="ctf-button">Lösung überprüfen</button>
     </form>
 
     <p>
         <?php echo isAnswerCorrect(); ?>
     </p>
+</div>
 
 </body>
 </html>

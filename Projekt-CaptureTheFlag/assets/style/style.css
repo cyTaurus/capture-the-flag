@@ -16,10 +16,17 @@ img {
 
 h1 {
   margin-top: 0;
+  color:#73BDA8; 
 }
 
+/* der Anagramm-Header bekommt eine ID, da hier spezifisch aus Platzgründen das Margin verändert werden muss */
+#anagramm-header {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
 
-.index-container {
+/* allgemeiner Layout-Container, sodass alles zentriert ist */
+.ctf-container {
     margin-top: 0;
     padding-top: 0;
     height: 100%;
@@ -32,7 +39,7 @@ h1 {
 
 }
 
-
+/* Leaderboard auf index.php */
 .layout {
     display: flex;
     align-items: flex-start;
@@ -49,6 +56,7 @@ h1 {
 
 
 
+/* Start-Text auf index.php*/
 .cursor {
   display: inline-block;
   animation: blink 1s  infinite;
@@ -61,7 +69,9 @@ h1 {
   }
 }
 
-#start {
+
+/* allgemeiner Style für die Buttons */
+.ctf-button {
     background-color: #6F5643;
     color: #73BDA8;
     border: 3px solid #73BDA8;
@@ -71,14 +81,49 @@ h1 {
     padding: 16px 16px;
 }
 
-#start:hover {
+.ctf-button:hover {
     background-color: #D2A24C;
     color: #6F5643;
     border: 3px solid #6F5643;
 }
 
+/* der continue-Button auf anagramms.php braucht aufgrund von Platzgründen eine leichte Anpassung des margin */
+#continue-button {
+    background-color: #6F5643;
+    color: #73BDA8;
+    border: 3px solid #73BDA8;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Press Start 2P', cursive;
+    padding: 16px 16px;
+    margin-top: 2px;
+}
+
+#continue-button:hover {
+    background-color: #D2A24C;
+    color: #6F5643;
+    border: 3px solid #6F5643;
+}
+
+
+/*message index.php */
 #message-container {
-    width: 600px;      
+  width: 600px;      
   height: 70px;    
   overflow: hidden;
+  text-align: center;
+  display: inline-block;
+}
+
+/* dient des Stylings des "Anagramm"-Paragraphen, der mehrmals generiert wird. Es braucht Platz mit margin, sodass der Text gut lesbar ist */
+p.anagramm {
+  color:#73BDA8;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+textarea {
+  resize: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

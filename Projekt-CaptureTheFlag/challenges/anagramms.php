@@ -31,24 +31,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTF: Anagramme</title>
-    <link rel="stylesheet" href="../assets/style/style.css">
+    <link rel="stylesheet" href="../assets/style/style.css?v=126">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P">
     
 
 </head>
 <body>
- <div class="layout">
-    <div class="index_container">
-    <h1>Rätsel 1: Anagramme</h1>
-    <p>Anagramme sind Wörter oder Sätze, die so umgestellt werden können, dass daraus neue Wörter oder Sätze entstehen.</p>
-    <h2>Löse die folgenden Anagramme: </h2>
+ <!--div class="layout"-->
+    <div class="ctf-container">
+     <h1>Rätsel 1: Anagramme</h1>
+     <p>Anagramme sind Wörter oder Sätze, die so umgestellt werden können, dass daraus neue Wörter oder Sätze entstehen.</p>
+     <h2 id="anagramm-header">Löse die folgenden Anagramme: </h2>
 
-    <form method="post" action="">
+     <form method="post" action="">
         <?php
             foreach($chosen as $index => $item): ?>
          <div class="question">
             <label>
-                Anagramm: <strong><?= htmlspecialchars($item['anagrams']) ?></strong><br>
+                <br><p class="anagramm">Anagramm:</p> <strong><?= htmlspecialchars($item['anagrams']) ?></strong><br>
                 Deine Lösung:
                 <input type="text" name="answer[<?= $index ?>]" value="<?= isset($_POST['answer'][$index]) ? htmlspecialchars($_POST['answer'][$index]) : '' ?>">
             </label>
@@ -61,27 +61,24 @@
                 <?php endif; ?>
             <?php endif; ?>
         </div>
-    <?php endforeach; ?>
+     <?php endforeach; ?>
 
-    <!-- Anagramm-Daten als verstecktes Feld erhalten -->
-    <input type="hidden" name="anagrams" value='<?= json_encode($chosen) ?>'>
+     <!-- Anagramm-Daten als verstecktes Feld erhalten -->
+     <input type="hidden" name="anagrams" value='<?= json_encode($chosen) ?>'><br>
 
-    <button type="submit">Antworten prüfen</button>
+     <button type="submit" class="ctf-button">Antworten prüfen</button>
 
         
-    </form>
+     </form>
 
-    <?php if ($allCorrect): ?>
-    <form action="encryption.php" method="post">
-        <button type="submit">Nächstes Rätsel</button>
-    </form>
-<?php endif; ?>
+     <?php if ($allCorrect): ?>
+     <form action="encryption.php" method="post">
+        <button type="submit" id="continue-button">Nächstes Rätsel</button>
+      </form>
+     <?php endif; ?>
 
-<!--weiterleitung zur SQL Injection, später LÖSCHEN!! Nur zum testen-->
-<form action="SQL_Injection.php" method="post">
-    <button type="submit">SQL</button>
-    </form>
-    </div>
-    </div>
+
+ </div>
+    <!--/div-->
 </body>
 </html>
