@@ -11,15 +11,15 @@
         die("Verbindung fehlgeschlagen: ". $conn->connect_error); //Exit + Fehlermeldung
     }
     // zum Testen
-    echo "Verbindung erfolgreich<br>";
+    /*echo "Verbindung erfolgreich<br>";*/
 
     //Datenbank erstellen
     $sql = "CREATE DATABASE IF NOT EXISTS injection_users";
-    if($conn->query($sql) === TRUE) {
+    /*if($conn->query($sql) === TRUE) {
         echo "Datenbank wurde erfolgreich erstellt<br>";
     } else {
         echo "Fehler beim Erstellen der Datenbank". $conn->error;
-    }
+    }*/
 
     // Datenbank auswählen
     $conn->select_db("injection_users");
@@ -33,11 +33,11 @@
     
 
     // Check, ob Tabelle richtig erstellt wurde
-    if($conn->query($sql) === TRUE) {
+   /* if($conn->query($sql) === TRUE) {
         echo "Tabelle: wurde erstellt <br>";
     } else {
         echo "Fehler beim Erstellen der Tabelle". $conn->error;
-    }
+    }*/
 
  $result = $conn->query("SELECT COUNT(*) as count FROM users");
  $row = $result->fetch_assoc();
@@ -48,12 +48,12 @@
     ('hacker', '1234'),
     ('gast', 'passwort')";
     echo "Nutzer erstellt";
-  if ($conn->query($sql) === TRUE) {
+  /*if ($conn->query($sql) === TRUE) {
         echo "Nutzer wurden eingefügt.<br>";
     } else {
         echo "Fehler beim Einfügen der Nutzer: " . $conn->error;
     }
 } else {
-    echo "Nutzer schon vorhanden.<br>";
+    echo "Nutzer schon vorhanden.<br>";*/
 }
     ?>

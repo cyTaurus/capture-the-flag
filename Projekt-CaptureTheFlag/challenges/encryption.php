@@ -36,8 +36,8 @@ function isAnswerCorrect() {
         if($eingabeText == $originalText) {
             // Button zur nächsten Challenge
             return "Rätsel gelöst!<br>
-           <form method='get' action='SQL_Injection.php'> //Hier den Link zur nächsten Challenge anpassen
-               <button type='submit'>Weiter zur nächsten Challenge</button>
+           <form method='get' action='SQL_Injection.php'> 
+               <button type='submit'class='ctf-button'>Weiter zur nächsten Challenge</button>
            </form>";
         } else {
             return "Leider falsch :(";

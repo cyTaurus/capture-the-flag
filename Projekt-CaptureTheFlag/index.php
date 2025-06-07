@@ -16,7 +16,7 @@ include 'databases/time.php';
     <script src="index.js"></script>
 </head>
 
-<body>
+<body class>
 
  <script>
     $(function () {

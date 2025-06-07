@@ -1,4 +1,4 @@
-body {
+body:not(.scrollable) {
     height: 100%;
     background-color: #ECE6C2;
     font-family: "Press Start 2P" , cursive;
@@ -10,11 +10,23 @@ body {
     overflow: hidden;
 }
 
+/* combie.php hat sehr viel Inhalt und muss daher scrollable sein, sonst passt nicht alles */
+body.scrollable {
+    height: 100%;
+    background-color: #ECE6C2;
+    font-family: "Press Start 2P" , cursive;
+    margin: 0;
+    padding: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 img {
   margin-bottom: 0;
 }
 
-h1 {
+h1, h2 {
   margin-top: 0;
   color:#73BDA8; 
 }
@@ -79,6 +91,8 @@ h1 {
     font-size: 16px;
     font-family: 'Press Start 2P', cursive;
     padding: 16px 16px;
+    grid-column: 1 / span 2; 
+    text-align: center;
 }
 
 .ctf-button:hover {
@@ -122,8 +136,25 @@ p.anagramm {
   margin-bottom: 5px;
 }
 
+/* auf encryption.php. Kann später noch farbig gestyled werden */
 textarea {
   resize: none;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+/* bei erfolgreicher SQL-Injection */
+.login-field {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 20px;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+}
+
+/* Bild auf combie.php */
+#combie-picture {
+  height: 100%;
+  width: 100%;
 }

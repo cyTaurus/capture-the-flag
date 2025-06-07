@@ -1,27 +1,14 @@
-<?php
-    if (isset($_POST['code'])) {
-        $code = $_POST['code'];
-        if ($code == 11214978) {
-            echo "<p>Rätsle gelöst!<br>
-           <form method='get' action='../ziel.php'> //Hier den Link zur nächsten Challenge anpassen
-               <button type='submit'>Weiter</button>
-           </form>";
-        }
-        else {
-            echo "<p>Leider falsch :(</p>"
-            ;
-        }
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capture The Flag: Kombiniertes Rätsel</title>
+    <title>CTF: Kombiniertes Rätsel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P"> 
+    <link rel="stylesheet" href="../assets/style/style.css?v=123">
 </head>
-<body>
+<body class="scrollable">
+    <div class="ctf-container">
     <h1>Kombiniertes Rätsel</h1>
     <p>Jetzt musst du ein "kombiniertes Rätsel" lösen.</p>
     <p>Hierbei musst du drei kleine Rätsel lösen, um am Ende den richtigen Code einzugeben!</p>
@@ -46,7 +33,7 @@
     <!-- Bild-Rätsel -->
     <h2>Bild-Rätsel</h2>
     <p>In diesem Bild versteckt sich eine Zahl, finde diese.</p>
-    <img src="../assets/images/combie.png" alt="Bild-Rätsel">
+    <img src="../assets/images/combie.png" alt="Bild-Rätsel" id="combie-picture"> <br><br>
 
     <!-- Eingabeformular für Code -->
     <h2>Code-Eingabe</h2>
@@ -56,9 +43,26 @@
         <label for="code">
             Code:
             <input type="number" id="code" name="code" required value="<?php echo isset($_POST['code']) ? htmlspecialchars($_POST['code']) : ''; ?>">
-            <input type="submit" value="Code absenden">
+            <input type="submit" value="Code absenden" class="ctf-button">
         </label>
     </form>
+
+    <?php
+    if (isset($_POST['code'])) {
+        $code = $_POST['code'];
+        if ($code == 11214978) {
+            echo "<p>Rätsel gelöst!<br>
+           <form method='get' action='../ziel.php'> 
+               <button type='submit' class='ctf-button'>Nächstes Rätsel</button>
+           </form>";
+        }
+        else {
+            echo "<p>Leider falsch :(</p>";
+        }
+    }
+ ?>
+
+</div>
 
 </body>
 </html>
