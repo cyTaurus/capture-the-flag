@@ -23,6 +23,9 @@
 
     $allCorrect = !empty($results) && !in_array(false, $results, true);
 
+    $modalContent = "Hier deine Hinweise einfügen :)";
+
+    include '../modal.php'; // Modal für Hinweise einbinden
     ?>
 
 <!DOCTYPE html>
@@ -40,6 +43,9 @@
  <!--div class="layout"-->
     <div class="ctf-container">
      <h1>Rätsel 1: Anagramme</h1>
+        <span>
+            <button class="ctf-button" onclick="openModal()">Hinweise anzeigen</button>
+        </span>
      <p>Anagramme sind Wörter oder Sätze, die so umgestellt werden können, dass daraus neue Wörter oder Sätze entstehen.</p>
      <h2 id="anagramm-header">Löse die folgenden Anagramme: </h2>
 

@@ -46,6 +46,17 @@ function isAnswerCorrect() {
     return "";
 }
 
+// Definiert Modal-Inhalt
+$modalContent = "
+                <h2>Hinweis zur Cäsar-Verschlüsselung</h2>
+                <ul>
+                    <li>Bei der Cäsar-Verschlüsselung werden die Buchstaben um eine gewisse Anzahl an Stellen (Schlüssel) verschoben</li><br>
+                    <li>In diesem Fall ist der Schlüssel 3, also werden die Buchstaben um drei Stellen verschoben</li><br>
+                    <li>Beispiel: A --> D, B --> E, C --> F, usw.</li>
+                </ul>
+                ";
+include '../modal.php'; // Modal für Hinweise einbinden
+
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +72,9 @@ function isAnswerCorrect() {
 <body>
  <div class="ctf-container">
     <h1>Cäsar-Verschlüsselung</h1>
+    <span>
+        <button class="ctf-button" onclick="openModal()">Hinweise anzeigen</button>
+    </span>
     <p>Dir liegt folgender Text vor, welcher mit der Cäsar-Verschlüsselung codiert wurde.</p>
     <p>Der Schlüssel, den du verwenden sollst, ist: <strong>3</strong></p>
 

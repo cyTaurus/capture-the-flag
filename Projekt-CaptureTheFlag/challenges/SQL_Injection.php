@@ -2,6 +2,10 @@
 
 include '../databases/users.php';
 
+$modalContent = "Hier deine Hinweise einfügen :)";
+
+include '../modal.php'; // Modal für Hinweise einbinden
+
 ?>
 
 
@@ -17,6 +21,9 @@ include '../databases/users.php';
 <body>
  <div class="ctf-container">
     <h1>SQL-Injection</h1>
+    <span>
+        <button class="ctf-button" onclick="openModal()">Hinweis anzeigen</button>
+    </span>
     <p> Als nächstes musst du dich hier mithilfe von SQL-Injection einloggen.</p>
  <form method="POST" action="login.php" class="login-field">
     <label for="user">Benutzername: </label>

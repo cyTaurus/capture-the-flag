@@ -1,3 +1,25 @@
+<?php
+    $modalContent = "
+                <h2>Hinweise zum kombinierten Rätsel</h2>
+                <ul>
+                    <li>Zahlen-Rätsel: Mit der Zahl kann man auch die Feuerwehr rufen.</li><br>
+                    <li>Farben-Rätsel:
+                        <ul>
+                            <li>Der Farbcode in Hexadezimal zahlen sind wie folgt aufgebaut: RR:GG:BB</li><br>
+                            <li>RR = Rot, GG = Grün, BB = Blau</li><br>
+                            <li>Die Intensität der Farben wird durch die Hexadezimal-Zahlen dargestellt</li><br>
+                            <li>#FF0000 ist nur rot zum Beispiel</li><br>
+                            <li>Du kannst für die Umrechnung von Hexadezimal-Zahlen in Dezimalzahlen auch einen Umrecher im Internet verwenden</li><br>
+                        </ul>
+                    </li>
+                    <li>Bild-Rätsel: Schau mal im Wasser nach (im unteren viertel, in der Mitte ungefähr)</li>
+                </ul>
+                ";
+
+    include '../modal.php'; // Modal für Hinweise einbinden
+?>
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,6 +32,9 @@
 <body class="scrollable">
     <div class="ctf-container">
     <h1>Kombiniertes Rätsel</h1>
+    <span>
+        <button class="ctf-button" onclick="openModal()">Hinweise anzeigen</button>
+    </span>
     <p>Jetzt musst du ein "kombiniertes Rätsel" lösen.</p>
     <p>Hierbei musst du drei kleine Rätsel lösen, um am Ende den richtigen Code einzugeben!</p>
 
