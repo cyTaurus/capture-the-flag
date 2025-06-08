@@ -33,10 +33,7 @@ include 'databases/time.php';
     <div id="message-container">
       <span id="message"></span><span class="cursor">|</span>
     </div>
-       
-    <!--h2>Test-Sektion</h2-->
-    
-    
+
     <form method="post" action="">
         <input type="hidden" name="action" value="start">
 
@@ -46,11 +43,6 @@ include 'databases/time.php';
         <button type="submit" class="ctf-button">Rätsel starten</button>
     </form>
 
-    <form method="post" action="">
-        <input type="hidden" name="action" value="ende">
-        
-        <button type="submit">Rätsel beenden</button>
-    </form>
   </div>
 
 
@@ -60,6 +52,6 @@ include 'databases/time.php';
         echo $leaderboardHtml;
     ?>
    </div>
-    </div>
+ </div>
 </body>
 </html>

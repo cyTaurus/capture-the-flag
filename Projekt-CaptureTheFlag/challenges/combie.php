@@ -35,6 +35,11 @@
     <p>In diesem Bild versteckt sich eine Zahl, finde diese.</p>
     <img src="../assets/images/combie.png" alt="Bild-Rätsel" id="combie-picture"> <br><br>
 
+    <!-- Vergrößtertes Bild -->
+    <div id="image-overlay" style="display:none;">
+        <img src="../assets/images/combie.png" alt="Bild-Rätsel Vergrößert" id="combie-picture-large">
+    </div>
+
     <!-- Eingabeformular für Code -->
     <h2>Code-Eingabe</h2>
     <p>Hier fügst du die Zahlen, welche du in den Rätseln herausgefunden hast, hinter einander ohne Leerzeichen ein </p>
@@ -53,7 +58,7 @@
         if ($code == 11214978) {
             echo "<p>Rätsel gelöst!<br>
            <form method='get' action='../ziel.php'> 
-               <button type='submit' class='ctf-button'>Nächstes Rätsel</button>
+               <button type='submit' class='ctf-button'>Weiter</button>
            </form>";
         }
         else {
@@ -63,6 +68,16 @@
  ?>
 
 </div>
+
+    <!-- Skript um Bild zu vergrößern -->
+    <script type="text/javascript">
+        document.getElementById('combie-picture').onclick = function () {
+            document.getElementById('image-overlay').style.display = 'flex';
+        };
+        document.getElementById('image-overlay').onclick = function () {
+            this.style.display = 'none';
+        };
+    </script>
 
 </body>
 </html>

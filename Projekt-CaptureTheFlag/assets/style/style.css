@@ -158,3 +158,24 @@ textarea {
   height: 100%;
   width: 100%;
 }
+
+/* Vergrößtertes Bild auf combie.php */
+#combie-picture-large {
+    max-width: 90vw;
+    max-height: 90vh;
+    box-shadow: 0 0 20px #000000;
+}
+
+/* Overlay für das vergrößerte Bild auf combie.php */
+#image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Sicherstellen, dass es über anderen Inhalten liegt */
+}
