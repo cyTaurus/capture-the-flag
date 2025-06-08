@@ -11,8 +11,6 @@
     if($conn->connect_error) {
         die("Verbindung fehlgeschlagen: ". $conn->connect_error); //Exit + Fehlermeldung
     }
-    // zum Testen
-    // echo "Verbindung erfolgreich<br>";
 
     //Datenbank erstellen
     $sql = "CREATE DATABASE IF NOT EXISTS ctf";
@@ -40,7 +38,7 @@
         echo "Fehler beim Erstellen der Tabelle". $conn->error;
     }
 
-    // Datensatz hinzufügen wenn Rätsel gestartet wird
+    // Datensatz hinzufügen, wenn Rätsel gestartet wird
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"]) && $_POST["action"] == "start") {
         $username = $_POST['username'];
         $_SESSION['username'] = $username; // Username in Session speichern

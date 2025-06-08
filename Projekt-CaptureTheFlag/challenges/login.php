@@ -4,20 +4,14 @@
         ini_set("display_errors", 1);
 
 
-$conn = new mysqli("localhost", "root", "", "injection_users");
+$conn = new mysqli("localhost", "root", "", "ctf");
 
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 
 $sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
-/*echo "<pre>$sql</pre>";*/
-$result = $conn->query($sql);
 
-/*if ($result->num_rows > 0) {
-    echo "Login erfolgreich!<br>";
-} else {
-    echo "Login fehlgeschlagen.";
-}*/
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
