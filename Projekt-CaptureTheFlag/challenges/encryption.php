@@ -1,4 +1,10 @@
 <?php
+session_start();
+// Teilflag setzen von der vorherigen Challenge
+if (isset($_POST['teilflag_ana'])) {
+    $_SESSION['teilflag_ana'] = $_POST['teilflag_ana']; // Teilflag für Anagramme setzen
+}
+
 $letters = array(range('A', 'Z')); // Array mit Buchstaben von A bis Z
 $key = 3; // Schlüssel für die Verschlüsselung
 $text = "Du bist ein Schritt weiter zum Ziel!"; // Text, der verschlüsselt werden soll
@@ -36,8 +42,9 @@ function isAnswerCorrect() {
         if($eingabeText == $originalText) {
             // Button zur nächsten Challenge
             return "Rätsel gelöst!<br>
-           <form method='get' action='SQL_Injection.php'> 
-               <button type='submit'class='ctf-button'>Weiter zur nächsten Challenge</button>
+           <form method='post' action='SQL_Injection.php'>
+               <input type='hidden' name='teilflag_encryption' value='1'>
+               <button type='submit' class='ctf-button'>Nächstes Rätsel</button>
            </form>";
         } else {
             return "Leider falsch :(";
@@ -71,7 +78,7 @@ include '../modal.php'; // Modal für Hinweise einbinden
 </head>
 <body class="scrollable">
  <div class="ctf-container">
-    <h1>Cäsar-Verschlüsselung</h1>
+    <h1>Rätsel 2: Cäsar-Verschlüsselung</h1>
     <span>
         <button class="ctf-button" onclick="openModal()">Hinweise anzeigen</button>
     </span>

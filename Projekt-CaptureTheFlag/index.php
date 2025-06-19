@@ -4,6 +4,13 @@ include 'databases/time.php';
 
 // Ausgabe benötigte Zeit und Platzierung für User
 if (isset($_POST['action']) && $_POST['action'] == 'ende') {
+
+    // Teilfalgs zurücksetzen
+    $_SESSION['teilflag_combie'] = "";
+    $_SESSION['teilflag_encryption'] = "";
+    $_SESSION['teilflag_sql'] = "";
+    $_SESSION['teilflag_ana'] = "";
+
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
         list($neededTime, $rank) = neededTimeAndRank($username);

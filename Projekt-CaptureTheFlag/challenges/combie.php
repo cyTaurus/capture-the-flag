@@ -1,4 +1,10 @@
 <?php
+    session_start();
+    // Teilflag setzen von der vorherigen Challenge
+    if (isset($_POST['teilflag_sql'])) {
+    $_SESSION['teilflag_sql'] = $_POST['teilflag_sql']; // Teilflag für Anagramme setzen
+    }
+
     $modalContent = "
                 <h2>Hinweise zum kombinierten Rätsel</h2>
                 <ul>
@@ -31,7 +37,7 @@
 </head>
 <body class="scrollable">
     <div class="ctf-container">
-    <h1>Kombiniertes Rätsel</h1>
+    <h1>Rätsel 4: Kombiniertes Rätsel</h1>
     <span>
         <button class="ctf-button" onclick="openModal()">Hinweise anzeigen</button>
     </span>
@@ -82,7 +88,8 @@
         $code = $_POST['code'];
         if ($code == 11214978) {
             echo "<p>Rätsel gelöst!<br>
-           <form method='get' action='../ziel.php'> 
+           <form method='post' action='../ziel.php'>
+               <input type='hidden' name='teilflag_combie' value='1'>
                <button type='submit' class='ctf-button'>Weiter</button>
            </form>";
         }

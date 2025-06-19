@@ -1,4 +1,5 @@
  <?php
+    session_start();
     $anagrams = ["Computer Science"=>"Eccentric Me Soup", "Algorithm"=>"Logarithm", "Artificial Intelligence"=>"A Critical Lifeline Tinge", "Database"=>"A Bad East","Website"=>"Bite Sew", "Sourcecode"=>"Eco Cues Rod", "Hypertext"=>"Hex Pet Try", "Protocol"=>"Color Top", "Programming"=>"Gaming Mr Pro"];
 
     if(!isset($_POST['anagrams'])) { 
@@ -29,7 +30,7 @@
     ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,6 +80,7 @@
 
      <?php if ($allCorrect): ?>
      <form action="encryption.php" method="post">
+        <input type="hidden" name="teilflag_ana" value="1">
         <button type="submit" id="continue-button">Nächstes Rätsel</button>
       </form>
      <?php endif; ?>

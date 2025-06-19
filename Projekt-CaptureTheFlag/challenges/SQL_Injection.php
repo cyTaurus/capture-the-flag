@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+// Teilflag setzen von der vorherigen Challenge
+if (isset($_POST['teilflag_encryption'])) {
+    $_SESSION['teilflag_encryption'] = $_POST['teilflag_encryption']; // Teilflag für Encryption setzen
+}
+
+
 include '../databases/users.php';
 
 $modalContent = "Hier deine Hinweise einfügen :)";
@@ -10,7 +17,7 @@ include '../modal.php'; // Modal für Hinweise einbinden
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +27,7 @@ include '../modal.php'; // Modal für Hinweise einbinden
 </head>
 <body class="scrollable">
  <div class="ctf-container">
-    <h1>SQL-Injection</h1>
+    <h1>Rätsel 3: SQL-Injection</h1>
     <span>
         <button class="ctf-button" onclick="openModal()">Hinweis anzeigen</button>
     </span>

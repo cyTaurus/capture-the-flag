@@ -1,5 +1,4 @@
 <?php
-
  error_reporting(E_ALL);
         ini_set("display_errors", 1);
 
@@ -15,7 +14,7 @@ $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +28,7 @@ $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             echo "<h1>Login erfolgreich!</h1><br>";
             echo "<form method='post' action='combie.php'>
+                    <input type='hidden' name='teilflag_sql' value='1'>
                     <input type='submit' value='Nächstes Rätsel' class='ctf-button'>
                   </form>";
       } else {
