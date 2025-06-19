@@ -77,6 +77,7 @@
     $leaderboardHtml = ""; // Variable für die Tabelle initialisieren, damit diese in index.php verwendet werden kann
     $sql = "SELECT username, SEC_TO_TIME(dauer) AS dauer
             FROM Zeiten
+            WHERE dauer IS NOT NULL
             ORDER BY dauer ASC
             LIMIT 10";
     $leaderboard = $conn->query($sql);
