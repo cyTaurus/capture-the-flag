@@ -15,7 +15,7 @@
     //Datenbank erstellen
     $sql = "CREATE DATABASE IF NOT EXISTS ctf";
     if($conn->query($sql) === TRUE) {
-        // echo "Datenbank wurde erfolgreich erstellt<br>";
+        echo "";
     } else {
         echo "Fehler beim Erstellen der Datenbank". $conn->error;
     }
@@ -33,7 +33,7 @@
     )";
     // Check, ob Tabelle richtig erstellt wurde
     if($conn->query($sql) === TRUE) {
-        // echo "Tabelle: Zeiten wurde erfolgreich erstellt<br>";
+        echo "";
     } else {
         echo "Fehler beim Erstellen der Tabelle". $conn->error;
     }
@@ -64,7 +64,7 @@
                         dauer = TIMESTAMPDIFF(SECOND, start_zeit, CURRENT_TIME)
                     WHERE username = '$username' AND end_zeit IS NULL";
             if($conn->query($sql) === TRUE) {
-                // echo "Endzeitpunkt und Dauer erfolgreich gesetzt<br>";
+                echo "";
             } else {
                 echo "Fehler beim Aktualisieren der Endzeit". $conn->error;
             }

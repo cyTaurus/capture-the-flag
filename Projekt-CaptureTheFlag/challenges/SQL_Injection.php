@@ -24,7 +24,7 @@ include '../modal.php'; // Modal für Hinweise einbinden
     <span>
         <button class="ctf-button" onclick="openModal()">Hinweis anzeigen</button>
     </span>
-    <p> Als nächstes musst du dich hier mithilfe von SQL-Injection einloggen.</p>
+    <p> Als Nächstes musst du dich hier mithilfe von SQL-Injection einloggen.</p>
  <form method="POST" action="login.php" class="login-field">
     <label for="user">Benutzername: </label>
      <input type="text" name="user" id="user"> 

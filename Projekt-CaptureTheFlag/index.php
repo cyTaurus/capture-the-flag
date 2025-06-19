@@ -2,7 +2,7 @@
 global $leaderboardHtml;
 include 'databases/time.php';
 
-// Ausgabe benötigte Zeit für User
+// Ausgabe benötigte Zeit und Platzierung für User
 if (isset($_POST['action']) && $_POST['action'] == 'ende') {
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
