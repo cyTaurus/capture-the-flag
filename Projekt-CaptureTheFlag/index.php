@@ -1,6 +1,26 @@
 <?php
 global $leaderboardHtml;
 include 'databases/time.php';
+
+// Ausgabe benötigte Zeit für User
+if (isset($_POST['action']) && $_POST['action'] == 'ende') {
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        list($neededTime, $rank) = neededTimeAndRank($username);
+        $finishMessage = "
+            <h3>Herzlichen Glückwunsch! Du hast die Flagge eingesammelt.</h3>
+            <p><strong>Zeit:</strong> $neededTime<br>
+            <strong>Platzierung:</strong> $rank</p>
+            ";
+    } else {
+        $finishMessage = "Kein User angemeldet";
+    }
+}
+
+// Schließen der Datenbankverbindung erst nach der Ausgabe
+if (isset($conn) && $conn instanceof mysqli) {
+    $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +32,7 @@ include 'databases/time.php';
     <title>Capture The Flag</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P"> 
     <link rel="stylesheet" href="assets/style/style.css?v=124"> 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--nötig für die Aufsführung des verwendeten Skripts-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--nötig für die Ausführung des verwendeten Skripts-->
     <script src="index.js"></script>
 </head>
 
@@ -27,6 +47,12 @@ include 'databases/time.php';
  <div class="layout">
   <div class="ctf-container">
     <h1>Willkommen bei Capture The Flag</h1>
+
+    <br>
+    <!-- Ausgabe der Nachricht, wenn User das Rätsel erfolgreich beendet hat -->
+    <?php echo isset($finishMessage) ? $finishMessage : ""; ?>
+    <br>
+
     <img id="HomepageImage" src="assets/images/homepage_PC.png" alt="test_image">
 
     <!--hier wird der Text mit dem Skript Buchstabe für Buchstabe ausgegeben-->

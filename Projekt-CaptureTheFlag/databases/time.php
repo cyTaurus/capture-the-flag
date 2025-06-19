@@ -104,6 +104,38 @@
     } else {
         $leaderboardHtml .= "Noch keine Ergebnisse vorhanden";
     }
-    
-    // Verbindung zu Datenbank schließen
-    $conn->close();
+
+    // Funktion um die benötigte Zeit für den User zu berechnen
+    function neededTimeAndRank($username) {
+        global $conn;
+
+        // Zeit des Users abfragen
+        $sql = "SELECT dauer FROM Zeiten WHERE username = '$username' AND end_zeit IS NOT NULL ORDER BY id DESC LIMIT 1";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $dauer = $row['dauer'];
+
+            // Platzierung berechnen
+            $sql = "SELECT COUNT(*)+1 AS platzierung FROM Zeiten WHERE dauer < $dauer";
+            $resPlace = $conn->query($sql);
+            $platzierung = 1;
+            if ($resPlace && $platzRow = $resPlace->fetch_assoc()) {
+                $platzierung = $platzRow['platzierung'];
+            }
+
+            // Zeit formatieren
+            $sql = "SELECT SEC_TO_TIME($dauer) AS dauer_formatiert";
+            $res = $conn->query($sql);
+            $dauer_formatiert = $dauer;
+            if($res && $row = $res->fetch_assoc()) {
+                $dauer_formatiert = $row['dauer_formatiert'];
+            }
+
+            return [$dauer_formatiert, $platzierung];
+        } else {
+            return ["Keine Daten gefunden", null];
+        }
+    }
+
+    ?>
