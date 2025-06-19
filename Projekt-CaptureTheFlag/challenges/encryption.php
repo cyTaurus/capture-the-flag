@@ -69,7 +69,7 @@ include '../modal.php'; // Modal für Hinweise einbinden
     <link rel="stylesheet" href="../assets/style/style.css?v=124"> 
 
 </head>
-<body>
+<body class="scrollable">
  <div class="ctf-container">
     <h1>Cäsar-Verschlüsselung</h1>
     <span>

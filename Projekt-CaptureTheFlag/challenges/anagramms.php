@@ -39,7 +39,7 @@
     
 
 </head>
-<body>
+<body class="scrollable">
  <!--div class="layout"-->
     <div class="ctf-container">
      <h1>Rätsel 1: Anagramme</h1>
