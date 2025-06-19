@@ -9,7 +9,14 @@ if (isset($_POST['teilflag_encryption'])) {
 
 include '../databases/users.php';
 
-$modalContent = "Hier deine Hinweise einfügen :)";
+$modalContent = "
+                <h2>Hinweis zu SQL-Injection</h2>
+                <ul>
+                    <li>So sieht ein SQL-Statement aus, wenn du dich einloggst: SELECT * FROM users WHERE username = '\$user' AND password = '\$pass'</li><br>
+                    <li>Versuche, dich mit dem 'admin'-Account einzuloggen.</li><br>
+                    <li>Syntax: user' -- # </li>
+                </ul>
+                ";
 
 include '../modal.php'; // Modal für Hinweise einbinden
 

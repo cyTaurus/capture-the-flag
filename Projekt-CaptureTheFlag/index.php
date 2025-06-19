@@ -43,7 +43,7 @@ if (isset($conn) && $conn instanceof mysqli) {
     <script src="index.js"></script>
 </head>
 
-<body class>
+<body class="scrollable">
 
  <script>
     $(function () {

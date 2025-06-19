@@ -1,6 +1,6 @@
  <?php
     session_start();
-    $anagrams = ["Computer Science"=>"Eccentric Me Soup", "Algorithm"=>"Logarithm", "Artificial Intelligence"=>"A Critical Lifeline Tinge", "Database"=>"A Bad East","Website"=>"Bite Sew", "Sourcecode"=>"Eco Cues Rod", "Hypertext"=>"Hex Pet Try", "Protocol"=>"Color Top", "Programming"=>"Gaming Mr Pro"];
+    $anagrams = ["Computer Science"=>"eCcentric me Soup", "Algorithm"=>"logArithm", "Artificial Intelligence"=>"A critIcal lifeline tinge", "Database"=>"a baD east","Website"=>"bite seW", "Sourcecode"=>"eco cueS rod", "Hypertext"=>"Hex pet try", "Protocol"=>"color toP", "Programming"=>"gaming mr Pro"];
 
     if(!isset($_POST['anagrams'])) { 
         $random_anagrams = array_rand($anagrams, 5); 
@@ -24,7 +24,14 @@
 
     $allCorrect = !empty($results) && !in_array(false, $results, true);
 
-    $modalContent = "Hier deine Hinweise einfügen :)";
+    $modalContent = "
+                <h2>Hinweis zu Anagrammen</h2>
+                <ul>
+                    <li>Jedes dieser Wörter hat etwas mit der Informatik zu tun.</li><br>
+                    <li>Die Anzahl der Großbuchstaben verrät etwas über die Anzahl der Wörter.</li><br>
+                    <li>Benutze englische Wörter!</li>
+                </ul>
+                ";
 
     include '../modal.php'; // Modal für Hinweise einbinden
     ?>
@@ -70,14 +77,14 @@
         </div>
      <?php endforeach; ?>
 
-     <!-- Anagramm-Daten als verstecktes Feld erhalten -->
+     <!-- Anagramm-Daten als verstecktes Feld -->
      <input type="hidden" name="anagrams" value='<?= json_encode($chosen) ?>'><br>
 
      <button type="submit" class="ctf-button">Antworten prüfen</button>
 
         
      </form>
-
+    <!-- Erst wenn alle Anagramme gelöst wurden, erscheint der Button zum nächsten-->
      <?php if ($allCorrect): ?>
      <form action="encryption.php" method="post">
         <input type="hidden" name="teilflag_ana" value="1">
