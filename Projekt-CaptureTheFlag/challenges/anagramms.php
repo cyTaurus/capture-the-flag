@@ -14,7 +14,7 @@
         $chosen = json_decode($_POST['anagrams'], true);
     }
     
-    //Prüfe, ob Formular abgesendet wurde.Vergleiche Nutzereingaben mit korrekter Lösung. Groß-und Kleinschreibung ist hierbei unwichtig.
+    //Prüfe, ob Formular abgesendet wurde. Vergleiche Nutzereingaben mit korrekter Lösung. Groß- und Kleinschreibung ist hierbei unwichtig.
     $results = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($_POST['answer'] as $index => $answer) {
@@ -51,7 +51,7 @@
 
 </head>
 <body class="scrollable">
- <!--div class="layout"-->
+
     <div class="ctf-container">
      <h1>Rätsel 1: Anagramme</h1>
         <span>
@@ -95,8 +95,7 @@
       </form>
      <?php endif; ?>
 
-
  </div>
-    <!--/div-->
+
 </body>
 </html>

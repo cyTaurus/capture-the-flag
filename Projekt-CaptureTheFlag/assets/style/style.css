@@ -10,7 +10,7 @@ body:not(.scrollable) {
     overflow: hidden;
 }
 
-/* combie.php hat sehr viel Inhalt und muss daher scrollable sein, sonst passt nicht alles */
+/* Seiten die diese Klasse haben sind scrollable */
 body.scrollable {
     height: 100%;
     background-color: #ECE6C2;
@@ -167,7 +167,7 @@ textarea {
   width: 100%;
 }
 
-/* Vergrößtertes Bild auf combie.php */
+/* Vergrößertes Bild auf combie.php */
 #combie-picture-large {
     max-width: 90vw;
     max-height: 90vh;

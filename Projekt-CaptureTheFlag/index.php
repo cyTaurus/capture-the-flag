@@ -5,7 +5,7 @@ include 'databases/time.php';
 // Ausgabe benötigte Zeit und Platzierung für User
 if (isset($_POST['action']) && $_POST['action'] == 'ende') {
 
-    // Teilfalgs zurücksetzen
+    // Teilflags zurücksetzen
     $_SESSION['teilflag_combie'] = "";
     $_SESSION['teilflag_encryption'] = "";
     $_SESSION['teilflag_sql'] = "";

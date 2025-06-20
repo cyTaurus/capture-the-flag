@@ -34,7 +34,6 @@
     ('admin', 'geheim'),
     ('hacker', '1234'),
     ('gast', 'passwort')";
-    echo "Nutzer erstellt";
     $conn->query($sql);
 }
     ?>
