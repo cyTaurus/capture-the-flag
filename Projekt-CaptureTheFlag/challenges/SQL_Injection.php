@@ -14,7 +14,7 @@ $modalContent = "
                 <ul>
                     <li>So sieht ein SQL-Statement aus, wenn du dich einloggst: SELECT * FROM users WHERE username = '\$user' AND password = '\$pass'</li><br>
                     <li>Versuche, dich mit dem 'admin'-Account einzuloggen.</li><br>
-                    <li>Syntax: user' -- # </li>
+                    <li>Syntax: user' -- # oder nutze ein Statement, welches immer wahr ist im Passwortfeld: ___ OR 1= '1 </li>
                 </ul>
                 ";
 
