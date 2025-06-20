@@ -2,16 +2,19 @@
     session_start();
     $anagrams = ["Computer Science"=>"eCcentric me Soup", "Algorithm"=>"logArithm", "Artificial Intelligence"=>"A critIcal lifeline tinge", "Database"=>"a baD east","Website"=>"bite seW", "Sourcecode"=>"eco cueS rod", "Hypertext"=>"Hex pet try", "Protocol"=>"color toP", "Programming"=>"gaming mr Pro"];
 
-    if(!isset($_POST['anagrams'])) { 
-        $random_anagrams = array_rand($anagrams, 5); 
+    //Prüfe, ob das Formular zum ersten Mal aufgerufen wird. Wenn ja: wähle 5 zufällige Wörter aus der Liste. Wenn nein: gewählte Wörter+Lösung werden encoded und versteckt mitgeschickt 
+    if(!isset($_POST['anagrams'])) {  
         $chosen = [];
-        foreach ($random_anagrams as $key) {
-            $chosen[] = ["solution"=>$key, "anagrams"=>$anagrams[$key]];
+        foreach ($anagrams as $solution => $anagram) {
+            $chosen[] = ["solution"=>$solution, "anagrams"=>$anagram];
         }
+        shuffle($chosen);
+        $chosen = array_slice($chosen, 0, 5);
     } else {
         $chosen = json_decode($_POST['anagrams'], true);
     }
     
+    //Prüfe, ob Formular abgesendet wurde.Vergleiche Nutzereingaben mit korrekter Lösung. Groß-und Kleinschreibung ist hierbei unwichtig.
     $results = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($_POST['answer'] as $index => $answer) {
@@ -28,7 +31,7 @@
                 <h2>Hinweis zu Anagrammen</h2>
                 <ul>
                     <li>Jedes dieser Wörter hat etwas mit der Informatik zu tun.</li><br>
-                    <li>Die Anzahl der Großbuchstaben verrät etwas über die Anzahl der Wörter.</li><br>
+                    <li>Die Anzahl der Großbuchstaben verrät etwas über die Anzahl der Lösungswörter.</li><br>
                     <li>Benutze englische Wörter!</li>
                 </ul>
                 ";
@@ -84,7 +87,7 @@
 
         
      </form>
-    <!-- Erst wenn alle Anagramme gelöst wurden, erscheint der Button zum nächsten-->
+    <!-- Erst wenn alle Anagramme gelöst wurden, erscheint der Button zum nächsten Rätsel-->
      <?php if ($allCorrect): ?>
      <form action="encryption.php" method="post">
         <input type="hidden" name="teilflag_ana" value="1">

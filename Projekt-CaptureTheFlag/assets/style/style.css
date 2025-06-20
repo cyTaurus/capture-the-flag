@@ -136,6 +136,14 @@ p.anagramm {
   margin-bottom: 5px;
 }
 
+.wrong {
+  color: red;
+}
+
+.correct {
+  color: green;
+}
+
 /* auf encryption.php. Kann später noch farbig gestyled werden */
 textarea {
   resize: none;

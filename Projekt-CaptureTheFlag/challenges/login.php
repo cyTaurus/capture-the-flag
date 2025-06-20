@@ -8,6 +8,7 @@ $conn = new mysqli("localhost", "root", "", "ctf");
 $user = $_POST['user'];
 $pass = $_POST['pass'];
 
+//Das ist die Sicherheitslücke, die die SQLi ermöglicht. Nutzername und Passwort werden ungeprüft SQL-Statement übergeben.
 $sql = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
 
 $result = $conn->query($sql);

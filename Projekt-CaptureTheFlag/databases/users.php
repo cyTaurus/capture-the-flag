@@ -25,6 +25,7 @@
 
     $conn->query($sql);
 
+ //Testnutzer, die benötigt werden, um SQLi durchzuführen. 
  $result = $conn->query("SELECT COUNT(*) as count FROM users");
  $row = $result->fetch_assoc();
   if ($row['count'] == 0) {
