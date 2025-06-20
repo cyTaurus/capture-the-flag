@@ -87,14 +87,14 @@
     if (isset($_POST['code'])) {
         $code = $_POST['code'];
         if ($code == 11214978) {
-            echo "<p>Rätsel gelöst!<br>
+            echo "<p class='correct'>Rätsel gelöst!<br>
            <form method='post' action='../ziel.php'>
                <input type='hidden' name='teilflag_combie' value='1'>
                <button type='submit' class='ctf-button'>Weiter</button>
            </form>";
         }
         else {
-            echo "<p>Leider falsch :(</p>";
+            echo "<p class='wrong'>Leider falsch :(</p>";
         }
     }
  ?>

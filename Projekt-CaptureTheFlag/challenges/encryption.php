@@ -41,13 +41,13 @@ function isAnswerCorrect() {
 
         if($eingabeText == $originalText) {
             // Button zur nächsten Challenge
-            return "Rätsel gelöst!<br>
+            return "<p class='correct'>Rätsel gelöst!</p><br>
            <form method='post' action='SQL_Injection.php'>
                <input type='hidden' name='teilflag_encryption' value='1'>
                <button type='submit' class='ctf-button'>Nächstes Rätsel</button>
            </form>";
         } else {
-            return "Leider falsch :(";
+            return "<p class='wrong'>Leider falsch :(</p>";
         }
     }
     return "";

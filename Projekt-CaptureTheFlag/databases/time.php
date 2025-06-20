@@ -31,6 +31,7 @@
     end_zeit TIMESTAMP NULL,
     dauer INT
     )";
+
     // Check, ob Tabelle richtig erstellt wurde
     if($conn->query($sql) === TRUE) {
         echo "";
