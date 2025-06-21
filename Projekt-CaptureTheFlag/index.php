@@ -41,6 +41,7 @@ if (isset($conn) && $conn instanceof mysqli) {
     <link rel="stylesheet" href="assets/style/style.css?v=121"> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--nötig für die Ausführung des verwendeten Skripts-->
     <script src="index.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/images/CTFflag.png">
 </head>
 
 <body class="scrollable">
@@ -55,12 +56,12 @@ if (isset($conn) && $conn instanceof mysqli) {
   <div class="ctf-container">
     <h1>Willkommen bei Capture The Flag</h1>
 
-    <br>
+    
     <!-- Ausgabe der Nachricht, wenn User das Rätsel erfolgreich beendet hat -->
     <?php echo isset($finishMessage) ? $finishMessage : ""; ?>
     <br>
 
-    <img id="HomepageImage" src="assets/images/homepage_PC.png" alt="test_image">
+    <img id="HomepageImage" src="assets/images/CTFflag_large.png" alt="test_image">
 
     <!--hier wird der Text mit dem Skript Buchstabe für Buchstabe ausgegeben-->
     <div id="message-container">

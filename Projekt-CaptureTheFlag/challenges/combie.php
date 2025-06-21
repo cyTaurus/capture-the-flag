@@ -34,6 +34,7 @@
     <title>CTF: Kombiniertes Rätsel</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P"> 
     <link rel="stylesheet" href="../assets/style/style.css?v=123">
+    <link rel="icon" type="image/x-icon" href="../assets/images/CTFflag.png">
 </head>
 <body class="scrollable">
     <div class="ctf-container">

@@ -47,6 +47,7 @@
     <title>CTF: Anagramme</title>
     <link rel="stylesheet" href="../assets/style/style.css?v=126">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P">
+    <link rel="icon" type="image/x-icon" href="../assets/images/CTFflag.png">
     
 
 </head>
