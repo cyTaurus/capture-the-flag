@@ -87,7 +87,7 @@
         $leaderboardHtml .= "
         <table class='leaderboard'>
         <tr>
-        <th class='tableHeader'>Platzierung</th> <th class='tableHeader'>Username</th> <th class='tableHeader'>Dauer</th>
+        <th class='tableHeader extraPadding'>Platzierung</th> <th class='tableHeader'>Username</th> <th class='tableHeader'>Dauer</th>
         </tr>
         ";
 

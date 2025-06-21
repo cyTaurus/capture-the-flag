@@ -38,7 +38,7 @@ if (isset($conn) && $conn instanceof mysqli) {
     <meta name="viewport" content="width-device-width, initial-scale=1.0">
     <title>Capture The Flag</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P"> 
-    <link rel="stylesheet" href="assets/style/style.css?v=124"> 
+    <link rel="stylesheet" href="assets/style/style.css?v=121"> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--nötig für die Ausführung des verwendeten Skripts-->
     <script src="index.js"></script>
 </head>
