@@ -5,13 +5,23 @@
 
 $conn = new mysqli("localhost", "root", "", "ctf");
 
+$login_erfolgreich = false;
+$login_versuch = false;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user']) && isset($_POST['pass'])) {
+$login_versuch = true;
 $user = $_POST['user'];
-$pass = $_POST['pass'];
+$pass = $_POST['pass']; 
 
 //Das ist die Sicherheitslücke, die die SQLi ermöglicht. Nutzername und Passwort werden ungeprüft SQL-Statement übergeben.
 $sql = "SELECT * FROM users WHERE username= 'admin' AND username = '$user' AND password = '$pass'";
 
 $result = $conn->query($sql);
+
+if ($result && $result->num_rows>0) {
+    $login_erfolgreich = true;
+}
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +36,9 @@ $result = $conn->query($sql);
 <body>
     <div class="ctf-container">
         <?php 
-        if ($result->num_rows > 0) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+         if ($login_versuch) {
+            if ($login_erfolgreich) {
             echo "<h1>Login erfolgreich!</h1><br>";
             echo "<form method='post' action='combie.php'>
                     <input type='hidden' name='teilflag_sql' value='1'>
@@ -34,7 +46,18 @@ $result = $conn->query($sql);
                   </form>";
       } else {
             echo "<h1>Login fehlgeschlagen :( </h1>";
-     }
+            echo "<form method='post' action='SQL_Injection.php'>
+               <button type='submit' class='ctf-button'>Züruck zum Login</button>
+               </form>";
+     } 
+    }
+     } else {
+        echo "<h1>Kehre zum Login zurück!</h1>";
+        echo "<form method='post' action='SQL_Injection.php'>
+               <button type='submit' class='ctf-button'>Züruck zum Login</button>
+               </form>";
+      }
+     
    ?>
 
     </div>
