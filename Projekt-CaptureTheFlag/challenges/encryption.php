@@ -75,8 +75,8 @@ include '../modal.php'; // Modal für Hinweise einbinden
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P"> 
     <link rel="stylesheet" href="../assets/style/style.css?v=124">
     <link rel="icon" type="image/x-icon" href="../assets/images/CTFflag.png"> 
-
 </head>
+
 <body class="scrollable">
  <div class="ctf-container">
     <h1>Rätsel 2: Cäsar-Verschlüsselung</h1>
