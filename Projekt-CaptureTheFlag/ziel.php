@@ -50,12 +50,12 @@
     <body>
     <div class="ctf-container">
 
-        <!-- Ausgabe der Fehlermeldung, wenn Rätsel nicht gelöst sind -->
+        <!-- Ausgabe der Fehlermeldung, wenn Rätsel nicht gelöst wurden -->
         <?php if (!empty($errorMessage)): ?>
         <?php echo $errorMessage; ?>
         <?php else: ?>
 
-        <!-- Ausgabe wenn alle Rätsel gelöst sind -->
+        <!-- Ausgabe, wenn alle Rätsel gelöst sind -->
         <h1>Herzlichen Glückwunsch</h1>
         <p>Du hast alle Rätsel gelöst!</p>
 
